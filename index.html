@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Fábrica de fichas</title>
+<meta name="description" content="La cartilla de lectura de «Fábrica de fichas»: 85 páginas gratis para aprender a leer, de las vocales a las trabadas. Para imprimir y fotocopiar en blanco y negro.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&family=Nunito:wght@400;600;700&family=Playwrite+ES&display=swap">
+<style>
+:root{
+  --papel:#fbf9f4; --hoja:#ffffff; --tinta:#1d2330; --gris:#5b6272; --linea:#e4ded1;
+  --azul:#2f6fd0; --azul-suave:#e8f0fc; --rojo:#e23d4b; --amarillo:#ffd24d; --amarillo-osc:#f0b400;
+  --sombra:0 10px 30px rgba(29,35,48,.12);
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  color-scheme:dark; --papel:#161a22; --hoja:#1e2430; --tinta:#eef0f4; --gris:#a9b0bd; --linea:#323a48;
+  --azul:#7fb0ff; --azul-suave:#1f2b40; --rojo:#ff7a85; --amarillo:#ffd24d; --amarillo-osc:#f0b400;
+  --sombra:0 10px 30px rgba(0,0,0,.45);}}
+:root[data-theme="dark"]{
+  color-scheme:dark; --papel:#161a22; --hoja:#1e2430; --tinta:#eef0f4; --gris:#a9b0bd; --linea:#323a48;
+  --azul:#7fb0ff; --azul-suave:#1f2b40; --rojo:#ff7a85; --amarillo:#ffd24d; --amarillo-osc:#f0b400;
+  --sombra:0 10px 30px rgba(0,0,0,.45);}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+body{margin:0;background:var(--papel);color:var(--tinta);font:17px/1.6 'Nunito',system-ui,sans-serif}
+a{color:var(--azul)}
+h1,h2,h3{font-family:'Fredoka','Nunito',sans-serif;font-weight:600;line-height:1.2;text-wrap:balance;margin:0}
+h1{font-size:clamp(30px,5vw,48px)}
+h2{font-size:clamp(24px,3.4vw,32px)}
+h3{font-size:20px}
+p{margin:0}
+.envoltura{max-width:1080px;margin:0 auto;padding-inline:20px}
+
+/* Cabecera */
+header{border-bottom:1px solid var(--linea)}
+header .envoltura{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:14px}
+.marca{display:flex;align-items:baseline;gap:10px;text-decoration:none;color:var(--tinta)}
+.marca .ligada{font-family:'Playwrite ES',cursive;font-size:24px;line-height:1.6}
+.marca .ligada b{font-weight:400;color:var(--rojo)}
+header nav{display:flex;gap:18px;font-weight:700;font-size:15px}
+header nav a{color:var(--tinta);text-decoration:none}
+header nav a:hover{color:var(--azul)}
+@media (max-width:620px){header nav{display:none}}
+
+/* Portada */
+.hero{padding-block:56px 40px}
+.hero .envoltura{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}
+.etiqueta{display:inline-block;font:700 13px 'Nunito',sans-serif;letter-spacing:1.4px;text-transform:uppercase;color:var(--azul);margin-bottom:12px}
+.hero h1 em{font-style:normal;font-family:'Playwrite ES',cursive;font-weight:400;font-size:.8em;color:var(--rojo);white-space:nowrap}
+.hero .entrada{margin-top:18px;font-size:19px;color:var(--gris);max-width:34em}
+.acciones{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.boton{display:inline-flex;align-items:center;gap:10px;padding:14px 22px;border-radius:14px;font:700 17px 'Nunito',sans-serif;text-decoration:none;border:2px solid transparent}
+.boton.principal{background:var(--amarillo);color:#1d2330;box-shadow:0 3px 0 var(--amarillo-osc)}
+.boton.principal:hover{transform:translateY(-1px)}
+.boton.secundario{border-color:var(--linea);color:var(--gris);background:transparent;cursor:default}
+.boton:focus-visible{outline:3px solid var(--azul);outline-offset:3px}
+.ficha-dato{margin-top:14px;font-size:14px;color:var(--gris)}
+.abanico{position:relative;height:440px}
+.abanico img{position:absolute;width:62%;max-width:300px;height:auto;border-radius:10px;box-shadow:var(--sombra);background:#fff;border:1px solid var(--linea)}
+.abanico img:nth-child(1){left:2%;top:34px;transform:rotate(-7deg)}
+.abanico img:nth-child(2){left:36%;top:0;transform:rotate(5deg);z-index:2}
+@media (max-width:820px){.hero .envoltura{grid-template-columns:1fr}.abanico{height:380px;max-width:460px}}
+@media (max-width:420px){.abanico{height:300px}}
+@media (max-width:520px){.hero h1 em{white-space:normal}.proximo .ligada{white-space:normal}.boton{width:100%;justify-content:center}}
+
+/* Letra a letra */
+.recorrido{padding-block:36px;border-block:1px solid var(--linea);background:var(--hoja)}
+.recorrido .envoltura{display:flex;flex-direction:column;gap:14px}
+.letras{display:flex;flex-wrap:wrap;gap:8px}
+.letras span{font-family:'Playwrite ES',cursive;font-size:18px;line-height:1.7;padding:2px 12px;border:1.5px solid var(--linea);border-radius:10px;background:var(--papel)}
+.letras span.inv{border-style:dashed;border-color:var(--amarillo-osc)}
+.letras span.trab{border-color:var(--azul)}
+.leyenda{font-size:14px;color:var(--gris)}
+
+/* Dentro */
+section.bloque{padding-block:56px}
+section.bloque .envoltura{display:flex;flex-direction:column;gap:28px}
+.cabeza p{margin-top:10px;color:var(--gris);max-width:40em}
+.paginas{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:22px}
+.paginas figure{margin:0;display:flex;flex-direction:column;gap:10px}
+.paginas img{width:100%;height:auto;border-radius:8px;border:1px solid var(--linea);box-shadow:var(--sombra);background:#fff}
+.paginas figcaption{font-size:15px;color:var(--gris)}
+.paginas figcaption b{color:var(--tinta)}
+@media (max-width:820px){.paginas{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* Usos */
+.usos{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}
+.uso{background:var(--hoja);border:1px solid var(--linea);border-radius:16px;padding:24px;display:flex;flex-direction:column;gap:10px}
+.uso .icono{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;background:var(--azul-suave);color:var(--azul)}
+.uso ul{margin:4px 0 0;padding-left:1.1em;color:var(--gris)}
+.uso li{margin-block:4px}
+.pronto{font:700 12px 'Nunito',sans-serif;letter-spacing:1px;text-transform:uppercase;color:#1d2330;background:var(--amarillo);border-radius:6px;padding:2px 8px;align-self:flex-start}
+@media (max-width:720px){.usos{grid-template-columns:1fr}}
+
+/* Licencia y próximamente */
+.licencia{display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:start;background:var(--hoja);border:1px solid var(--linea);border-radius:16px;padding:22px 24px}
+.licencia .cc{font:700 14px 'Nunito',sans-serif;border:2px solid var(--tinta);border-radius:8px;padding:4px 8px;white-space:nowrap}
+.licencia p+p{margin-top:8px;color:var(--gris);font-size:15px}
+.proximo{background:var(--azul);color:#fff;border-radius:20px;padding:36px 32px;display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center}
+.proximo p{margin-top:8px;opacity:.92;max-width:36em}
+.proximo .ligada{font-family:'Playwrite ES',cursive;font-size:22px;line-height:1.7;background:rgba(255,255,255,.14);border-radius:12px;padding:8px 16px;white-space:nowrap}
+@media (max-width:720px){.proximo{grid-template-columns:1fr}.licencia{grid-template-columns:1fr}}
+
+footer{border-top:1px solid var(--linea);padding-block:26px;color:var(--gris);font-size:14px}
+footer .envoltura{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="envoltura">
+    <a class="marca" href="#inicio" aria-label="Fábrica de fichas, inicio"><span class="ligada"><b>F</b>ábrica de <b>f</b>ichas</span></a>
+    <nav aria-label="Secciones">
+      <a href="#dentro">Qué incluye</a>
+      <a href="#usos">Cómo usarla</a>
+      <a href="#licencia">Licencia</a>
+    </nav>
+  </div>
+</header>
+
+<main id="inicio">
+  <section class="hero">
+    <div class="envoltura">
+      <div>
+        <span class="etiqueta">Gratis · Para imprimir</span>
+        <h1>La cartilla de lectura de <em>«Fábrica de fichas»</em></h1>
+        <p class="entrada">De las vocales a las trabadas, letra a letra. Cada lección tiene sílabas, dibujos para leer y frases escritas solo con las letras que el niño ya conoce.</p>
+        <div class="acciones">
+          <a class="boton principal" href="La_cartilla_de_Fabrica_de_fichas.pdf" download>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
+            Descargar la cartilla (PDF)
+          </a>
+          <span class="boton secundario" aria-disabled="true">Versión para pantalla digital · pronto</span>
+        </div>
+        <p class="ficha-dato">85 páginas · A4 · blanco y negro, pensada para fotocopiar · 14 MB</p>
+      </div>
+      <div class="abanico" aria-hidden="true">
+        <img src="img/pag1.jpg" alt="" width="620" height="876">
+        <img src="img/pag10.jpg" alt="" width="620" height="876">
+      </div>
+    </div>
+  </section>
+
+  <section class="recorrido" aria-labelledby="t-recorrido">
+    <div class="envoltura">
+      <h2 id="t-recorrido" style="font-size:20px">El orden de las lecciones</h2>
+      <div class="letras">
+        <span>a e i o u</span><span>p</span><span>l</span><span class="inv">al</span><span>m</span><span class="inv">am</span><span>s</span><span class="inv">as</span><span>t</span><span>n</span><span class="inv">an</span><span>d</span><span>h</span><span>ca co cu</span><span>ce ci</span><span>que qui</span><span>ch</span><span>r</span><span class="inv">ar</span><span>rr</span><span>b</span><span>v</span><span>f</span><span>ll</span><span>ñ</span><span>ga go gu</span><span>gue gui</span><span>güe güi</span><span>ge gi</span><span>j</span><span>y</span><span>z</span><span>x</span><span>k</span><span>w</span><span class="trab">pl</span><span class="trab">bl</span><span class="trab">cl</span><span class="trab">fl</span><span class="trab">gl</span><span class="trab">pr</span><span class="trab">br</span><span class="trab">cr</span><span class="trab">dr</span><span class="trab">fr</span><span class="trab">gr</span><span class="trab">tr</span>
+      </div>
+      <p class="leyenda">Con borde discontinuo, las páginas de sílabas inversas; en azul, las trabadas.</p>
+    </div>
+  </section>
+
+  <section class="bloque" id="dentro" aria-labelledby="t-dentro">
+    <div class="envoltura">
+      <div class="cabeza">
+        <h2 id="t-dentro">Qué hay dentro</h2>
+        <p>Más de 700 dibujos hechos para la cartilla, en línea clara para que se vean bien en fotocopia. Cada letra ocupa dos páginas: en la primera, sílabas, dibujos y frases; en la segunda, más dibujos y una pequeña historia.</p>
+      </div>
+      <div class="paginas">
+        <figure><img src="img/pag1.jpg" alt="Portada de la cartilla con dibujos y un recuadro para el nombre" width="620" height="876" loading="lazy"><figcaption><b>Portada.</b> Con sitio para el nombre, el curso y el colegio.</figcaption></figure>
+        <figure><img src="img/pag2.jpg" alt="Página de las vocales con dibujos de sonidos" width="620" height="876" loading="lazy"><figcaption><b>Las vocales.</b> Con dibujos de sonidos: «aaa», «uuu», «au».</figcaption></figure>
+        <figure><img src="img/pag10.jpg" alt="Página de la letra m con dibujos y una historia" width="620" height="876" loading="lazy"><figcaption><b>Cada letra.</b> Dibujos para leer y una historia corta.</figcaption></figure>
+        <figure><img src="img/pag64.jpg" alt="Página de la trabada pl con dibujos y una historia" width="620" height="876" loading="lazy"><figcaption><b>Las trabadas.</b> De pl a tr, también con su historia.</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="bloque" id="usos" aria-labelledby="t-usos" style="padding-top:0">
+    <div class="envoltura">
+      <h2 id="t-usos">Cómo usarla</h2>
+      <div class="usos">
+        <div class="uso">
+          <span class="icono" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V3h12v6"/><rect x="3" y="9" width="18" height="8" rx="2"/><path d="M6 14h12v7H6z"/></svg></span>
+          <h3>En papel</h3>
+          <ul>
+            <li>Imprímela entera o solo la lección del día.</li>
+            <li>Está en blanco y negro, sin grises, para que la fotocopiadora no la cobre como copia en color.</li>
+          </ul>
+        </div>
+        <div class="uso">
+          <span class="pronto">Próximamente</span>
+          <h3>En la pantalla digital de clase</h3>
+          <ul>
+            <li>Las mismas páginas, a color, para que el niño reconozca en pantalla lo que tiene en papel.</li>
+            <li>Al tocar un dibujo o una frase, se lee en voz alta sílaba a sílaba.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bloque" id="licencia" aria-labelledby="t-licencia" style="padding-top:0">
+    <div class="envoltura">
+      <div class="licencia">
+        <span class="cc">CC BY-NC-ND 4.0</span>
+        <div>
+          <h2 id="t-licencia" style="font-size:20px">Úsala, imprímela y compártela</h2>
+          <p>Puedes copiar, imprimir y repartir la cartilla libremente citando a «Fábrica de fichas». No se permite venderla ni usarla con fines comerciales, ni repartir versiones modificadas.</p>
+          <p>Licencia <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.es" rel="license noopener" target="_blank">Creative Commons Reconocimiento-NoComercial-SinObraDerivada 4.0 Internacional</a>.</p>
+        </div>
+      </div>
+      <div class="proximo">
+        <div>
+          <h2 style="color:#fff">Muy pronto, un generador de fichas</h2>
+          <p>Estamos preparando una herramienta para crear fichas de Lengua y Matemáticas a medida para cada clase. Esta cartilla es lo primero que sale de la fábrica.</p>
+        </div>
+        <span class="ligada" aria-hidden="true">ma me mi mo mu</span>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="envoltura">
+    <span>© 2026 Fábrica de fichas</span>
+    <span>Dibujos, textos y maquetación propios.</span>
+  </div>
+</footer>
+
+</body>
+</html>
