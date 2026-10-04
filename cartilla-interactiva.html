@@ -642,6 +642,7 @@ body { margin: 0; background: #dfe7f3; overflow: hidden; font-family: 'Nunito', 
   <button id="pantalla" type="button">Pantalla completa</button>
 </nav>
 
+<script src="cartilla-interactiva-audios.js"></script>
 <script>
 (() => {
   const hojas = [...document.querySelectorAll('#hoja .pagina')];
@@ -714,7 +715,7 @@ body { margin: 0; background: #dfe7f3; overflow: hidden; font-family: 'Nunito', 
   document.getElementById('cerrar-indice').onclick = cerrarIndice;
 
   // ---------- Voz: audios grabados dentro del archivo (y, si falta alguno, la voz del navegador) ----------
-  const AUD_S = {}, AUD_T = {}, AUD_L = {};   // versión web: sin audios grabados, se usa la voz del dispositivo   // AUD_L: sonido de la letra del título (grabado por la maestra)
+  const AUD_S = window.CARTILLA_AUD_S || {}, AUD_T = window.CARTILLA_AUD_T || {}, AUD_L = window.CARTILLA_AUD_L || {};   // AUD_L: sonido de la letra del título (grabado por la maestra)
   const norm = t => t.replace(/\s+/g, ' ').trim().toLowerCase();
   const reproductor = new Audio();                 // uno solo: una vez desbloqueado por el primer toque, sigue sonando
   let finActual = null;
