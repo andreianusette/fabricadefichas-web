@@ -63,10 +63,21 @@ header nav a:hover{color:var(--azul)}
 @media (max-width:620px){header nav{display:none}}
 
 /* Portada */
-.hero{padding-block:28px 12px}
+.hero{padding-block:28px 20px}
 .presenta{display:grid;grid-template-columns:1.15fr 1fr;gap:32px;align-items:stretch}
 .portada{margin:0;border-radius:22px;overflow:hidden;box-shadow:var(--sombra);border:1px solid var(--linea);background:#bfe0fb}
 .portada img{display:block;width:100%;height:100%;aspect-ratio:3/2;object-fit:cover}
+.lateral{display:flex;flex-direction:column;gap:16px}
+.lateral .proximo{background:var(--azul);color:#fff;border-radius:22px;padding:24px 26px;display:flex;flex-direction:column;justify-content:center;gap:16px}
+.lateral .boton{justify-content:center;font-size:18px}
+.ejemplos{margin-top:36px;display:flex;flex-direction:column;gap:16px}
+.ejemplos h2{font-size:22px}
+.fichas{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}
+.fichas a{display:flex;flex-direction:column;gap:10px;text-decoration:none;color:var(--gris);font-size:15px}
+.fichas img{width:100%;height:auto;border-radius:10px;border:1px solid var(--linea);box-shadow:var(--sombra);background:#fff}
+.fichas a:hover img{transform:translateY(-2px)}
+.fichas b{color:var(--tinta)}
+@media (max-width:820px){.fichas{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}}
 .cartilla{padding-block:36px 48px}
 .cartilla .envoltura{display:flex;flex-direction:column;gap:22px}
 .etiqueta{display:inline-block;font:700 13px 'Nunito',sans-serif;letter-spacing:1.4px;text-transform:uppercase;color:var(--azul);margin-bottom:12px}
@@ -155,18 +166,35 @@ footer .envoltura{display:flex;flex-wrap:wrap;justify-content:space-between;gap:
           <img src="img/portada-1536.jpg" srcset="img/portada-800.jpg 800w, img/portada-1536.jpg 1536w" sizes="(max-width:820px) 100vw, 560px" width="1536" height="1024" alt="Dibujo de una fábrica con el letrero «Fábrica de fichas»: por la puerta salen hojas de fichas en una cinta transportadora.">
         </picture>
       </figure>
-      <div class="proximo">
-        <div>
-          <h2 style="color:#fff">Muy pronto, un generador de fichas</h2>
-          <p>Estamos preparando una herramienta para crear fichas de Lengua y Matemáticas a medida para cada clase. Esta cartilla es lo primero que sale de la fábrica.</p>
+      <div class="lateral">
+        <div class="proximo">
+          <div>
+            <h2 style="color:#fff">Muy pronto, un generador de fichas</h2>
+            <p>Haremos fichas de Lengua y Matemáticas a medida para cada clase.</p>
+          </div>
+          <ul>
+            <li>De 1.º a 6.º de Educación Primaria</li>
+            <li>Referenciadas a la LOMLOE</li>
+            <li>Listas en un par de minutos</li>
+            <li>Decenas de tipos de ejercicios</li>
+          </ul>
         </div>
-        <ul>
-          <li>De 1.º a 6.º de Educación Primaria</li>
-          <li>Referenciadas a la LOMLOE</li>
-          <li>Listas en un par de minutos</li>
-          <li>Decenas de tipos de ejercicios</li>
-        </ul>
+        <a class="boton principal" href="#descargar">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
+          <span>Descarga gratuita de la cartilla de lectura</span>
+        </a>
       </div>
+      </div>
+
+      <div class="ejemplos" aria-labelledby="t-ejemplos">
+        <h2 id="t-ejemplos">Fichas de ejemplo hechas con el generador</h2>
+        <div class="fichas">
+          <a href="fichas/ficha-series-y-conteo.pdf" target="_blank" rel="noopener"><img src="img/ficha-series-y-conteo.jpg" alt="Ficha de Matemáticas con series de dibujos y una escena para contar" width="600" height="760" loading="lazy"><span><b>Matemáticas.</b> Series y conteo con dibujos.</span></a>
+          <a href="fichas/ficha-el-abaco.pdf" target="_blank" rel="noopener"><img src="img/ficha-el-abaco.jpg" alt="Ficha de Matemáticas para contar dibujos y leer el ábaco" width="600" height="760" loading="lazy"><span><b>Matemáticas.</b> Contamos y usamos el ábaco.</span></a>
+          <a href="fichas/ficha-palabras-y-silabas.pdf" target="_blank" rel="noopener"><img src="img/ficha-palabras-y-silabas.jpg" alt="Ficha de Lengua para unir contrarios y contar sílabas" width="600" height="760" loading="lazy"><span><b>Lengua.</b> Contrarios y sílabas.</span></a>
+          <a href="fichas/ficha-calculo-y-euros.pdf" target="_blank" rel="noopener"><img src="img/ficha-calculo-y-euros.jpg" alt="Ficha de Matemáticas con cuentas, monedas y billetes y un problema de compras" width="600" height="760" loading="lazy"><span><b>Matemáticas.</b> Cálculo y euros.</span></a>
+        </div>
+        <p class="ficha-dato">Pulsa una ficha para verla entera.</p>
       </div>
     </div>
   </section>
