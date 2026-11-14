@@ -156,6 +156,19 @@ section.bloque .envoltura{display:flex;flex-direction:column;gap:28px}
 .agua .ir{align-self:flex-start;display:inline-flex;align-items:center;gap:10px;background:#fff;color:#1565c0;border-radius:14px;padding:12px 18px;font:700 17px 'Nunito',sans-serif;box-shadow:0 3px 0 rgba(0,0,0,.18)}
 @media (max-width:820px){.agua{grid-template-columns:1fr}.agua .foto{min-height:0;aspect-ratio:16/10}.agua .texto{padding:20px}}
 
+/* Fichas gratis por curso y asignatura (páginas en /fichas/) */
+.gratis{margin-top:32px;display:flex;flex-direction:column;gap:6px}
+.gratis h2{font-size:clamp(24px,3vw,30px)}
+.gratis .ficha-dato a{font-weight:700}
+.grupos{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-top:12px}
+@media (max-width:820px){.grupos{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.grupo{display:flex;flex-direction:column;gap:2px;padding:16px 18px;border-radius:16px;background:var(--hoja);border:2px solid var(--linea);text-decoration:none;color:var(--tinta);transition:border-color .15s,transform .15s}
+.grupo:hover{border-color:var(--azul);transform:translateY(-2px)}
+.grupo:focus-visible{outline:3px solid var(--tinta);outline-offset:3px}
+.grupo .curso{font:600 22px 'Fredoka','Nunito',sans-serif}
+.grupo .asig{font-weight:700;color:var(--azul)}
+.grupo .num{font-size:14px;color:var(--gris)}
+
 footer{border-top:1px solid var(--linea);padding-block:26px;color:var(--gris);font-size:14px}
 footer .envoltura{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
 </style>
@@ -166,6 +179,7 @@ footer .envoltura{display:flex;flex-wrap:wrap;justify-content:space-between;gap:
   <div class="envoltura">
     <a class="marca" href="#inicio" aria-label="Fábrica de fichas, inicio"><span class="ligada"><b>F</b>ábrica de <b>f</b>ichas</span></a>
     <nav aria-label="Secciones">
+      <a href="/fichas/">Fichas gratis</a>
       <a href="#ciclo-del-agua">Ciclo del agua</a>
       <a href="#descargar">La cartilla</a>
       <a href="#dentro">Qué incluye</a>
@@ -203,6 +217,12 @@ footer .envoltura{display:flex;flex-wrap:wrap;justify-content:space-between;gap:
           <span>Descarga gratuita de la cartilla de lectura</span>
         </a>
       </div>
+      </div>
+
+      <div class="gratis" id="fichas-gratis" aria-labelledby="t-gratis">
+        <h2 id="t-gratis">Fichas gratis para imprimir</h2>
+        <p class="ficha-dato">Elige curso y asignatura. Cada ficha, en PDF a color y en blanco y negro.</p>
+        <div class="grupos"><a class="grupo" href="/fichas/1-primaria/lengua/" data-umami-event="Abre grupo de fichas" data-umami-event-grupo="1-lengua"><span class="curso">1.º Primaria</span><span class="asig">Lengua</span><span class="num">2 fichas</span></a><a class="grupo" href="/fichas/1-primaria/matematicas/" data-umami-event="Abre grupo de fichas" data-umami-event-grupo="1-mates"><span class="curso">1.º Primaria</span><span class="asig">Matemáticas</span><span class="num">3 fichas</span></a><a class="grupo" href="/fichas/2-primaria/matematicas/" data-umami-event="Abre grupo de fichas" data-umami-event-grupo="2-mates"><span class="curso">2.º Primaria</span><span class="asig">Matemáticas</span><span class="num">3 fichas</span></a><a class="grupo" href="/fichas/3-primaria/matematicas/" data-umami-event="Abre grupo de fichas" data-umami-event-grupo="3-mates"><span class="curso">3.º Primaria</span><span class="asig">Matemáticas</span><span class="num">13 fichas</span></a></div>
       </div>
 
       <a class="agua" id="ciclo-del-agua" href="ciclo-del-agua/" target="_blank" rel="noopener" data-umami-event="Abre ciclo del agua">
